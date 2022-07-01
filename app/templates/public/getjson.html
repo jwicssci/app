@@ -6,19 +6,14 @@
 
 <body>
 
+<div id="gpustats">
 <h1><strong>GPU:</strong> {{ gpu }}</h1>
-
-<h1><strong>GPU Memory Usage:</strong> {{ gpu_memory_usage }}</h1>
-
-<h1><strong>GPU Memory Available:</strong> {{ gpu_memory_free }}</h1>
-
-<h1><strong>GPU Temperature:</strong> {{ gpu_current_temp }}</h1>
-
-<h1><strong>GPU Power Usage:</strong> {{ gpu_power_usage }}</h1>
-
-<h1><strong>GPU Clock Speed:</strong> {{ gpu_clock_speed }}</h1>
+<h3><strong>Memory Usage:</strong> {{ gpu_memory_usage }}</h1>
+<h3><strong>Memory Available:</strong> {{ gpu_memory_free }}</h1>
+<h3><strong>Temperature:</strong> {{ gpu_current_temp }}</h1>
+<h3><strong>Power Usage:</strong> {{ gpu_power_usage }}</h1>
+<h3><strong>Clock Speed:</strong> {{ gpu_clock_speed }}</h1>
+</div>
 
 </body>
-
 {%endblock%}
-
