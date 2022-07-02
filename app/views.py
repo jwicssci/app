@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-import os
+import psutil
 import subprocess
 from app import app
 from flask import render_template, request, json, jsonify, redirect
@@ -38,7 +38,9 @@ def handle_json():
                            ['gpu']['power_readings']['power_draw'])
         gpu_clock_speed = (result['nvidia_smi_log']
                            ['gpu']['clocks']['graphics_clock'])
+        cpu_temp = psutil.sensors_temperatures()['k10temp'][1]
+        cpu_current_temp = str(cpu_temp.current)
 
-        return render_template("public/getjson.html", gpu=gpu, gpu_memory_usage=gpu_memory_usage, gpu_memory_free=gpu_memory_free, gpu_current_temp=gpu_current_temp, gpu_power_usage=gpu_power_usage, gpu_clock_speed=gpu_clock_speed)
+        return render_template("public/getjson.html", gpu=gpu, gpu_memory_usage=gpu_memory_usage, gpu_memory_free=gpu_memory_free, gpu_current_temp=gpu_current_temp, gpu_power_usage=gpu_power_usage, gpu_clock_speed=gpu_clock_speed, cpu_current_temp=cpu_current_temp)
     else:
         return "Invalid request!", 400
