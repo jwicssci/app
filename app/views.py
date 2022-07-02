@@ -14,6 +14,9 @@ def index():
 def about():
     return render_template("public/about.html")
 
+@app.route("/gauge")
+def gauge():
+    return render_template("public/gauge/example.html")
 
 @app.route("/getjson", methods=["GET", "POST"])
 # url -X POST http://localhost:5000/json -H "Content-Type: application/json" -d @data.json
