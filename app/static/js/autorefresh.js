@@ -1,4 +1,4 @@
 function autoRefresh() {
     window.location = window.location.href;
 }
-setInterval('autoRefresh()', 5000);
+setInterval('autoRefresh()', 2000);
