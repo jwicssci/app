@@ -22,6 +22,11 @@
     <br>
     <h3><strong>CPU Temperature:</strong> {{ cpu_current_temp }} C</h3>
     <h3><strong>CPU Load:</strong> {{ cpu_load }} %</h3>
+    <meter id="cpu_load"
+       min="0" max="100"
+       low="0" high="50" optimum="10"
+       value={{ cpu_current_temp }}>
+    </meter>
 </div>
 
 </body>
