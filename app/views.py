@@ -14,9 +14,23 @@ def index():
 def about():
     return render_template("public/about.html")
 
-@app.route("/gauge")
+
+@app.route("/gauge", methods=["GET"])
 def gauge():
-    return render_template("public/gauge/example.html")
+    cmd = "nvidia-smi -x -q |xml2json| jq"
+    ps = subprocess.Popen(
+        cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    result = json.loads(ps.communicate()[0])
+    # GPU Data
+    gpu = (result['nvidia_smi_log']['gpu']['product_name'])
+    gpu_current_temp = (result['nvidia_smi_log']
+                        ['gpu']['temperature']['gpu_temp'])
+    # CPU Data
+    cpu_temp = psutil.sensors_temperatures()['k10temp'][1]
+    cpu_current_temp = str(cpu_temp.current)
+    cpu_load = str(psutil.cpu_percent(interval=None))
+    return render_template("public/gauge.html", gpu_current_temp=gpu_current_temp, cpu_load=cpu_load, cpu_current_temp=cpu_current_temp)
+
 
 @app.route("/getjson", methods=["GET", "POST"])
 # url -X POST http://localhost:5000/json -H "Content-Type: application/json" -d @data.json
