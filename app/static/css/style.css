@@ -1,9 +1,14 @@
 body {
     background-color: #000000;
-    background-image: url(/static/img/background.png);
+    background-image: url(/static/img/redblue.jpg);
+    background-size: 800px 480px;
     background-repeat: no-repeat;
 }
 
 h1, h2, h3, h4, h5, h6, p {
     color: #FFFFFF;
+}
+
+h3 {
+    text-indent: 50px;
 }
