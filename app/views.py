@@ -58,11 +58,11 @@ def handle_json():
                            ['gpu']['clocks']['graphics_clock'])
         # CPU Data
         cpu_temp = psutil.sensors_temperatures()['k10temp'][1]
-        cpu_current_temp = str(cpu_temp.current)
+        cpu_current_temp = round(cpu_temp.current)
         cpu_load = str(psutil.cpu_percent(interval=None))
-        # cpu_freq = (psutil.cpu_freq())
+        cpu_freq = round((psutil.cpu_freq())[0])
         # cpu_current_freq = ((cpu_freq)[0])
 
-        return render_template("public/getjson.html", gpu=gpu, gpu_memory_usage=gpu_memory_usage, gpu_memory_free=gpu_memory_free, gpu_current_temp=gpu_current_temp, gpu_power_usage=gpu_power_usage, gpu_clock_speed=gpu_clock_speed, cpu_current_temp=cpu_current_temp, cpu_load=cpu_load)
+        return render_template("public/getjson.html", gpu=gpu, gpu_memory_usage=gpu_memory_usage, gpu_memory_free=gpu_memory_free, gpu_current_temp=gpu_current_temp, gpu_power_usage=gpu_power_usage, gpu_clock_speed=gpu_clock_speed, cpu_current_temp=cpu_current_temp, cpu_load=cpu_load, cpu_freq=cpu_freq)
     else:
         return "Invalid request!", 400

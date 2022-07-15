@@ -20,11 +20,12 @@
 <div id="cpustats">
     <h1><strong>CPU:</strong> AMD Ryzen 9 5950X</h1>
     <br>
-    <h3><strong>CPU Temperature:</strong> {{ cpu_current_temp }} C</h3>
-    <h3><strong>CPU Load:</strong> {{ cpu_load }} %
+    <h3><strong>CPU Freq:</strong> {{ cpu_freq }} MHz</h3>
+    <h3><strong>CPU Load:</strong> {{ cpu_load }} %</h3>
+    <h3><strong>CPU Temp:</strong> {{ cpu_current_temp }} C
     <meter id="cpu_load"
-       min="0" max="100"
-       low="0" high="50" optimum="10"
+       min="0.0" max="90.0"
+       low="45" high="75" optimum="60"
        value={{ cpu_current_temp }}>
     </meter>
     </h3>
