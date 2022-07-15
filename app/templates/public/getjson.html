@@ -5,31 +5,44 @@
 {%block main%}
 
 <body>
-
-<div id="gpustats">
-    <h1><strong>GPU:</strong> {{ gpu }}</h1>
-    <br>
-    <h3><strong>Memory Usage:</strong> {{ gpu_memory_usage }}</h1>
-    <h3><strong>Memory Available:</strong> {{ gpu_memory_free }}</h1>
-    <h3><strong>Temperature:</strong> {{ gpu_current_temp }}</h1>
-    <h3><strong>Power Usage:</strong> {{ gpu_power_usage }}</h1>
-    <h3><strong>Clock Speed:</strong> {{ gpu_clock_speed }}</h1>
-    <br>
-</div>
-
-<div id="cpustats">
-    <h1><strong>CPU:</strong> AMD Ryzen 9 5950X</h1>
-    <br>
-    <h3><strong>CPU Freq:</strong> {{ cpu_freq }} MHz</h3>
-    <h3><strong>CPU Load:</strong> {{ cpu_load }} %</h3>
-    <h3><strong>CPU Temp:</strong> {{ cpu_current_temp }} C
-    <meter id="cpu_load"
-       min="0.0" max="90.0"
-       low="45" high="75" optimum="60"
-       value={{ cpu_current_temp }}>
-    </meter>
-    </h3>
-</div>
-
-</body>
+    <div id="page">
+        <div id="gpustats">
+           <h1><strong>GPU:</strong> {{ gpu }}</h1>
+           <br>
+           <h3>
+           <strong>Memory Usage:</strong> {{ gpu_memory_usage }}</h1>
+           <h3>
+           <strong>Memory Available:</strong> {{ gpu_memory_free }}</h1>
+           <h3>
+           <strong>Temperature:</strong> {{ gpu_current_temp }}</h1>
+           <h3>
+           <strong>Power Usage:</strong> {{ gpu_power_usage }}</h1>
+           <h3>
+           <strong>Clock Speed:</strong> {{ gpu_clock_speed }}</h1>
+           <br>
+        </div>
+        <div id="cpustats">
+           <h1><strong>CPU:</strong> AMD Ryzen 9 5950X</h1>
+           <br>
+           <h3><strong>CPU Freq:</strong> {{ cpu_freq }} MHz</h3>
+           <h3><strong>CPU Load:</strong> {{ cpu_load }} %</h3>
+           <h3><strong>CPU Temp:</strong> {{ cpu_current_temp }} C
+              <meter id="cpu_load"
+                 min="0.0" max="90.0"
+                 low="45" high="75" optimum="60"
+                 value={{ cpu_current_temp }}>
+              </meter>
+           </h3>
+        </div>
+     </div>
+     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+     <script> 
+        $(document).ready(function(){
+        setInterval(function(){
+              $("#page").load(window.location.href + " #page" );
+        }, 1500);
+        });
+     </script>
+     </body>
+     
 {%endblock%}
