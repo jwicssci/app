@@ -33,4 +33,4 @@ View the stats via a browser or the ModBros app (custom URL).
 http://198.51.100.10:5000/getjson
 ```
 
-<img src="https://i.imgur.com/WpBxn5G.png" alt="Image"/>
+<img src="https://i.imgur.com/EpJ7wxP.png" alt="Image"/>
