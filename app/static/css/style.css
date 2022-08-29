@@ -1,7 +1,7 @@
 body {
     background-color: #000000;
-    background-image: url(/static/img/redblue3.jpg);
-    background-size: 800px;
+    background-image: url(/static/img/orange.png);
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
